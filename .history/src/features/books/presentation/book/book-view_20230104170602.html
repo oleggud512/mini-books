@@ -1,0 +1,39 @@
+<template>
+  <require from="../../../../common/my-header/my-header"></require>
+
+  <my-header title="BOOK PAGE"></my-header>
+
+  <div if.bind="isEdit" role="form" class="main-form">
+    <input 
+      class="title-text-field"
+      type="text" 
+      value.bind="book.name" 
+      placeholder="book name">
+    <input 
+      class="description-text-field"
+      type="text" 
+      value.bind="book.description" 
+      placeholder="book description">
+    <br>
+    <button click.trigger="submit()">${submitText}</button>
+    <button click.trigger="deleteThisBook()">Delete</button>
+  </div>
+  <div else class="main-form">
+    <p class="title-text-field">${book.name}</p>
+    <p class="description-text-field">${book.description}</p>
+  </div>
+  
+  <button click.trigger="changeViewMode()" class="floating-action-button">CHANGE VIEW MODE</button>
+
+  <h2>Chapters</h2>
+  <section repeat.for="chapter of book.chapters">
+    <a route-href="route: chapterView; params.bind: {bid: book._id, cid: chapter._id};">
+      <hr>
+      <p>${chapter.name}</p>
+      <!-- <button click.trigger="showChapter(chapter)">Show Chapter</button> -->
+      <hr>
+    </a>
+  </section>
+
+  <a route-href="route: chpaterAddView; params.bind: {bid: book._id};" class="new">Add New Chapter</a>
+</template>

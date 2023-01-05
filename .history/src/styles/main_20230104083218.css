@@ -1,0 +1,38 @@
+/* @font-face {
+    font-family: ProductSans;
+    src: url(Product_Sans_Regular.ttf);
+}
+
+* {
+    font-family: ProductSans
+} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.new {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 4px;
+    border-radius: 4px;
+    border: 2px solid rgb(0, 128, 0);
+    background-color: rgb(0, 128, 0, 0.5);
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 1
+}
+
+.book-list a {
+    border: 2px solid grey;
+    border-radius: 16px;
+    margin: 16px;
+    min-width: 200px;
+    max-width: 300px;
+    height: 300px;
+}

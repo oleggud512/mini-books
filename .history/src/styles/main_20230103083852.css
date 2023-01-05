@@ -1,0 +1,11 @@
+/* @font-face {
+    font-family: ProductSans;
+    src: url(Product_Sans_Regular.ttf);
+}
+
+* {
+    font-family: ProductSans
+} */
+template {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}

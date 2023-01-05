@@ -1,0 +1,88 @@
+<template>
+  <require from="../../../../common/my-header/my-header"></require>
+  <require from="../../../../common/html-txt"></require>
+
+  <my-header title="BOOK PAGE"></my-header>
+
+  <!-- EDIT -->
+  <!-- <div if.bind="isEdit" role="form" class="main-form">
+    <section class="action-buttons">
+      <button click.trigger="submit()" class="submit">${submitText}</button>
+      <button click.trigger="deleteThisBook()" class="delete">Delete</button>
+    </section>
+    <input 
+      class="title-text-field"
+      type="text" 
+      value.bind="book.name" 
+      placeholder="book name">
+    <textarea 
+      class="description-text-field"
+      role="textbox"
+      placeholder="book description" 
+      value.bind="book.description" 
+      >
+    </textarea>
+  </div> -->
+  <!-- VIEW -->
+  <!-- <div else class="main-form">
+    <section class="action-buttons">
+      <button click.trigger="changeViewMode()" class="with-space-right">Edit</button>
+    </section>
+    <p class="title-text-field">${book.name}</p>
+    <div 
+      class="description-text-field"
+      contenteditable="false" 
+      aria-multiline="true" 
+      innerhtml.bind="book.description"
+      role="textbox"
+      >
+    </div>
+  </div> -->
+  <div class="main-form">
+    <section class="action-buttons">
+      <div if.bind="isEdit">
+        <button click.trigger="submit()" class="submit">${submitText}</button>
+        <button click.trigger="deleteThisBook()" class="delete">Delete</button>
+      </div>
+      <div if.bind="!isEdit">
+        <button click.trigger="changeViewMode()" class="with-space-right">Edit</button>
+      </div>
+    </section>
+    <input 
+      class="title-text-field"
+      disabled.bind="!isEdit"
+      type="text" 
+      value.bind="book.name" 
+      placeholder="book name">
+    <!-- <textarea 
+      class="description-text-field"
+      disabled.bind="!isEdit"
+      role="textbox"
+      placeholder="book description" 
+      value.bind="book.description | htmlTxt">
+    </textarea> -->
+    <div
+      contenteditable="true"
+      class="description-text-field"
+      aria-multiline="true"
+      role="textbox"
+      innerhtml.bind="book.description"
+    ></div>
+  </div>
+  
+  <div style="max-width: 1000px; margin-inline: auto;">
+    <h2 style='margin-top: 16px;'>Chapters</h2>
+    <section>
+      <a repeat.for="chapter of book.chapters" route-href="route: chapterView; params.bind: {bid: book._id, cid: chapter._id};">
+        <p class="chapter-item">${chapter.name}</p>
+      </a>
+    </section>
+    <a 
+      route-href="route: chpaterAddView; params.bind: {bid: book._id};" 
+      css="display: ${isEdit && isNewBook ? 'inherit' : 'none'};"
+      class="button floating-action-button">
+      Add New Chapter
+    </a>
+  </div>
+
+</template>

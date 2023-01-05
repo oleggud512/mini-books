@@ -1,0 +1,33 @@
+<template>
+  <h1>The book page</h1>
+  
+  <button click.trigger="back()">Back</button>
+
+  <div if.bind="isEdit">
+    <form role="form" style="display:inline-block;text-align:right">
+      <input type="text" value.bind="book.name" placeholder="book name">
+      <input type="text" value.bind="book.description" placeholder="book description">
+      <br>
+      <button click.trigger="submit()">${submitText}</button>
+      <button click.trigger="deleteThisBook()">Delete</button>
+    </form>
+  </div>
+  <div else>
+    <p>name: ${book.name}</p>
+    <p>description: ${book.description}</p>
+  </div>
+  
+  <button click.trigger="changeViewMode()">CHANGE VIEW MODE</button>
+
+  <h2>Chapters</h2>
+  <section repeat.for="chapter of book.chapters">
+    <a route-href="route: chapterView; params.bind: {bid: book._id, cid: chapter._id};">
+      <hr>
+      <p>${chapter.name}</p>
+      <!-- <button click.trigger="showChapter(chapter)">Show Chapter</button> -->
+      <hr>
+    </a>
+  </section>
+
+  <a route-href="route: chpaterAddView; params.bind: {bid: book._id};" class="new">Add New Chapter</a>
+</template>

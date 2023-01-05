@@ -1,0 +1,8 @@
+<template>
+  <h1>The book page</h1>
+  <form role="form">
+    <input style="display: block" type="text" value.bind="book.name" placeholder="book name">
+    <input type="text" value.bind="book.description" placeholder="book description">
+    <button click.trigger="submit()">${submitText}</button>
+  </form>
+</template>

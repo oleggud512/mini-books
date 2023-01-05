@@ -1,0 +1,27 @@
+<template>
+  <h1>${title}</h1>
+  <!-- <a route-href="route: book;">to book page</a> -->
+  <form>
+    <fieldset>
+      <legend>Filters</legend>
+      <p>
+        Title: 
+        <!-- <input type="text" change.trigger="lastName = $event.target.value"> -->
+        <input type="text" change.trigger="query('on change')">
+        <br>
+        ${some.value}
+        <br>
+        ${lastName}
+        <br>
+        ${filter}
+      </p>
+      <input type="submit" value="FIND" click.trigger="query('on button click')">
+    </fieldset>
+  </form>
+  <a repeat.for="book of books" route-href="route: bookView; params.bind: {bid:book._id};"> <!--, 'is-edit': false-->
+    <hr>
+    <p>title: ${book.name}<br>description: ${book.description}</p>
+    <hr>
+  </a>
+  <button click.trigger="showAddNewPage()">Add New</button>
+</template>

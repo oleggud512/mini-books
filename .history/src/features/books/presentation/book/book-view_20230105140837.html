@@ -1,0 +1,71 @@
+<template>
+  <require from="../../../../common/my-header/my-header"></require>
+  <require from="../../../../common/html-txt"></require>
+  <require from="../../../../common/len"></require>
+
+  <my-header title="BOOK PAGE">
+    <div if.bind="isEdit" slot="actions">
+      <button click.trigger="submit()" class="submit">${submitText}</button>
+      <button click.trigger="deleteThisBook()" class="delete">Delete</button>
+    </div>
+    <div else slot="actions">
+      <button click.trigger="changeViewMode()" class="with-space-right">Edit</button>
+    </div>
+  </my-header>
+
+  <div class="main-form">
+    <input 
+      class="title-text-field"
+      disabled.bind="!isEdit"
+      type="text" 
+      value.bind="book.name" 
+      placeholder="book name">
+    <!-- <textarea 
+      class="description-text-field"
+      disabled.bind="!isEdit"
+      role="textbox"
+      placeholder="book description" 
+      value.bind="book.description | htmlTxt">
+    </textarea> -->
+    <div if.bind="isEdit">
+      <div
+        contenteditable="true"
+        class="description-text-field"
+        aria-multiline="true"
+        role="textbox"
+        input.trigger="onDescriptionChanged($event.target.innerText)"
+      ></div>
+    </div>
+    <div else>
+      <div
+        contenteditable="false"
+        class="description-text-field"
+        aria-multiline="true"
+        role="textbox"
+        innerhtml.bind="book.description"
+      ></div>
+    </div>
+  </div>
+  
+  <div style="max-width: 1000px; margin-inline: auto;">
+    <h2 style='margin-top: 16px;'>Chapters</h2>
+    <section>
+      <span repeat.for="chapter of book.chapters">
+        <article class="chapter">
+          <a class="main-chapter" route-href="route: chapterView; params.bind: {bid: book._id, cid: chapter._id};" style="flex-grow: 1;">
+            ${chapter.name}
+          </a>
+          <span if.bind="isEdit" click.trigger="deleteChapter(chapter)" class="material-symbols-outlined delete">delete_forever</span>
+        </article>
+      </span>
+    </section>
+    <div style="height: 33px"></div>
+    <a 
+      route-href="route: chpaterAddView; params.bind: {bid: book._id};" 
+      css="display: ${isEdit && isNewBook ? 'inherit' : 'none'};"
+      class="button floating-action-button">
+      Add New Chapter
+    </a>
+  </div>
+
+</template>

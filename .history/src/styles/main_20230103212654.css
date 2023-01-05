@@ -1,0 +1,23 @@
+/* @font-face {
+    font-family: ProductSans;
+    src: url(Product_Sans_Regular.ttf);
+}
+
+* {
+    font-family: ProductSans
+} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.new {
+    text-decoration: none;
+    color: black;
+    padding: 4px;
+    margin-top: 8px;
+    border-radius: 4px;
+    border: 2px solid rgb(0, 128, 0);
+    background-color: rgb(0, 128, 0, 0.5);
+}

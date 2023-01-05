@@ -1,0 +1,48 @@
+<template>
+  <require from="../../../common/my-header/my-header"></require>
+  <my-header title="CHAPTER PAGE">
+    <div slot="actions">
+      <button if.bind="isEdit" click.trigger="submit()" class="submit">${submitText}</button>
+      <button if.bind="isEdit && isNewChapter" click.trigger="deleteThisChapter()" class="delete">Delete</button>
+      <button if.bind="!isEdit" click.trigger="changeViewMode()" class="with-space-right">Edit</button>
+    </div>
+  </my-header>
+
+  <div class="main-form">
+    <input 
+      class="title-text-field"
+      disabled.bind="!isEdit"
+      type="text" 
+      value.bind="chapter.name" 
+      placeholder="chapter name">
+    <!-- <textarea 
+      class="description-text-field"
+      disabled.bind="!isEdit"
+      role="textbox"
+      placeholder="book description" 
+      value.bind="book.description | htmlTxt">
+    </textarea> -->
+
+    <div if.bind="isEdit">
+      <div
+        contenteditable="true"
+        class="description-text-field"
+        aria-multiline="true"
+        role="textbox"
+        innerhtml.bind="chapter.text"
+      ></div>
+    </div>
+
+    <div else>
+      <div
+        contenteditable="false"
+        class="description-text-field"
+        aria-multiline="true"
+        role="textbox"
+        innerhtml.bind="chapter.text"
+      ></div>
+    </div>
+  </div>
+  <div style="height: 50%; width: 50px; color: aqua;"></div>
+
+</template>

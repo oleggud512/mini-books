@@ -1,0 +1,27 @@
+<template>
+  <require from="../../../../common/my-header/my-header"></require>
+
+  <my-header title="BOOK LIST" back="hidden">
+    <div slot="actions">
+      <input 
+        type="text" 
+        input.trigger="refreshBooks($event.target.value) & debounce:300" 
+        placeholder="type here" 
+        class="text-field hitem">
+    </div>
+  </my-header>
+
+  <section class="book-list">
+    <a 
+    style="border-bottom: 1px solid green"
+      repeat.for="book of books" 
+      route-href="route: bookView; params.bind: {bid:book._id};"> <!--, 'is-edit': false-->
+      <span class="book-name">${book.name}</span>
+      <div class="book-description" innerhtml.bind="book.description"></div>
+    </a>
+  </section>
+  
+  <button click.trigger="showAddNewPage()" class="floating-action-button" style="bottom: 0px; min-height: 100px;">Add New</button>
+
+
+</template>

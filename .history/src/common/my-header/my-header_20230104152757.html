@@ -1,0 +1,11 @@
+<template>
+    <header class="hd">
+        <button class="back ${!back ? 'hidden' : ''}" click.trigger="navigateBack()">Back</button>
+        <div style="width: 16px"></div>
+        <h1 class="hitle">${title}</h1>
+        <div repeat.for="action of actions" class="action">
+            ${action}
+        </div>
+        <slot name="actions"></slot>
+    </header>
+</template>

@@ -1,0 +1,14 @@
+<template>
+  <require from="./styles/main.css"></require>
+
+  <h1 style="text-align: center">THE BOOKS APP</h1>
+  <hr>
+  <nav>
+    <h2>Navigation</h2>
+    <ul repeat.for="nav of router.navigation">
+      <li><a href.bind="nav.href">${nav.title}</a></li>
+    </ul>
+  </nav>
+  <hr>
+  <router-view></router-view>
+</template>

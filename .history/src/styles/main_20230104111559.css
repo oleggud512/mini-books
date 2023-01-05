@@ -1,0 +1,153 @@
+/* @font-face {
+    font-family: ProductSans;
+    src: url(Product_Sans_Regular.ttf);
+}
+
+* {
+    font-family: ProductSans
+} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --primary: rgb(94, 141, 229)
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    /* margin: 0;
+    padding: 0; */
+}
+
+.new {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 4px;
+    border-radius: 4px;
+    border: 2px solid rgb(0, 128, 0);
+    background-color: rgb(0, 128, 0, 0.5);
+}
+
+.hd {
+    display: flex;
+    /* border: 1px dashed lightgray; */
+    justify-content:space-between;
+    align-items: center;
+}
+
+.hitle {
+    margin-left: 64px;
+}
+
+.text-field {
+    height: 50px;
+    max-width: 400px;
+    min-width: 300px;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.text-field:focus {
+    outline: none;
+    border-color: 1px solid blue;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:visited {
+    color: black
+}
+
+.floating-action-button {
+    position: relative;
+    bottom: 16px;
+    right: 16px;
+    height: 64px;
+    width: 128px;
+    font-size: 20px;
+    border-radius: 16px;
+    box-shadow: 16;
+}
+
+button {
+    background-color: white;
+    border: 1px solid hsl(0, 0%, 83%);
+}
+
+button:hover,
+button:focus {
+    background-color: hsl(0, 0%, 99%);
+}
+
+.book-name {
+    text-align: center;
+    display: block;
+    font-size: 24px;
+    margin-right: auto;
+    border-bottom: 1px solid hsl(0, 0%, 95%);
+}
+
+.book-description {
+    margin-top: 8px;
+    display: block;
+    color: grey;
+    margin-right: auto;
+}
+
+.book-list {
+    max-width: 1200px;
+    display: grid;
+    gap: 16px;
+    margin-inline: auto;
+    /* border: 1px solid lightgray; */
+}
+
+.book-list a {
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.book-list a:hover,
+.book-list a:focus {
+    background-color: hsl(0, 0%, 99%)
+}
+
+
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    .book-list {
+        justify-content: stretch;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .book-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .book-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .book-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

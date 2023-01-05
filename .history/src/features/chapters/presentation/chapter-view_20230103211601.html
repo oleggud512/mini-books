@@ -1,0 +1,20 @@
+<template>
+  <h1>chapter view</h1>
+  <button click.trigger="router.navigateBack()">Back</button>
+
+  <div if.bind="isEdit">
+    <form role="form"> <!--edit-->
+      <input type="text" value.bind="chapter.name">
+      <input type="text" value.bind="chapter.text">
+      <button click.trigger="submit()">${submitText}</button>
+      <button click.trigger="deleteThisChapter()">Delete</button>
+    </form>
+  </div>
+  <div else> <!--view-->
+    <p>name: ${chapter.name}</p>
+    <p>text: ${chapter.text}</p>
+  </div>
+  <button click.trigger="changeViewMode()">CHANGE VIEW MODE</button>
+
+  <button click.trigger="showAddNewPage()">Add New</button>
+</template>

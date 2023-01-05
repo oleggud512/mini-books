@@ -1,0 +1,15 @@
+<template>
+  <h1>${title}</h1>
+  <!-- <a route-href="route: book;">to book page</a> -->
+  <input type="text" input.trigger="query($event.target.value)" placeholder="type here" class="text-field">
+
+  <div class="cent">
+    <section class="book-list">
+      <a repeat.for="book of books" route-href="route: bookView; params.bind: {bid:book._id};"> <!--, 'is-edit': false-->
+        <span class="book-name">${book.name}</span>
+        <span class="book-description">${book.description}</span>
+      </a>
+    </section>
+  </div>
+  <button click.trigger="showAddNewPage()">Add New</button>
+</template>

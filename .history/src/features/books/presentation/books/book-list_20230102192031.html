@@ -1,0 +1,21 @@
+<template>
+  <h1>${title}</h1>
+  <!-- <a route-href="route: book;">to book page</a> -->
+  <form>
+    <fieldset>
+      <legend>Filters</legend>
+      <p>
+        Title: <input type="text" name="titleFilter" id="titleFilter">
+      </p>
+      <input type="submit" value="FIND">
+    </fieldset>
+  </form>
+  <section repeat.for="book of books">
+    <a route-href="route: bookView; params.bind: {bid:book._id};">
+      <hr>
+      <p>title: ${book.name}<br>description: ${book.description}</p>
+      <hr>
+    </a>
+  </section>
+  <button click.trigger="showBook('gauno', true)">Add New</button>
+</template>

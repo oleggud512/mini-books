@@ -1,0 +1,8 @@
+<template>
+  <h1>The book page</h1>
+  <form action.trigger="submit()" role="form">
+    <input type="text" value.bind="book.name">
+    <input type="text" value.bind="book.description">
+    <button type="submit">${isEdit ? "Save" : "Add"}</button>
+  </form>
+</template>

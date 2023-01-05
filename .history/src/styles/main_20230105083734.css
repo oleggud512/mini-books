@@ -1,0 +1,266 @@
+/* @font-face {
+    font-family: ProductSans;
+    src: url(Product_Sans_Regular.ttf);
+}
+
+* {
+    font-family: ProductSans
+} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap');
+:root {
+    --primary: rgb(94, 141, 229)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Varela Round', sans-serif;
+}
+
+body {
+    padding: 8px;
+}
+
+.new {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 4px;
+    border-radius: 4px;
+    border: 2px solid rgb(0, 128, 0);
+    background-color: rgb(0, 128, 0, 0.5);
+}
+
+.hd {
+    display: flex;
+    /* border: 1px dashed lightgray; */
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 16px;
+}
+
+.hitle {
+    display: inline-block;
+    margin-right: auto;
+}
+
+.action {
+    display: inline;
+}
+
+.text-field {
+    height: 50px;
+    max-width: 400px;
+    min-width: 300px;
+    font-size: 20px;
+    margin-left: auto;
+    border: none;
+    border-bottom: 1px solid lightgray;
+}
+
+.text-field:focus {
+    outline: none;
+    border-color: 1px solid blue;
+}
+.title-text-field,
+.title-text-field:disabled {
+    padding: 0;
+    margin: 0;
+    display: block;
+    font-size: 50px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    outline: none;
+    color: black;
+    background-color: white;
+    /* margin-inline: auto; */
+}
+
+.description-text-field,
+.description-text-field:disabled {
+    padding: 0;
+    margin: 0;
+    display: block;
+    font-size: 20px;
+    max-height: 200px;
+    border: none;
+    outline: none;
+    margin-top: 16px;
+    color: hsl(0, 0%, 20%);
+    background-color: white;
+}
+
+.main-form {
+    display: flex;
+    max-width: 1000px;
+    margin-inline: auto;
+    flex-direction:column;
+    align-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover,
+a:focus,
+a:visited {
+    color: black
+}
+
+.floating-action-button {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    box-shadow: 0px 3px 3px lightgrey;
+}
+
+textarea {
+    resize: none; 
+    font-family: 'Varela Round', sans-serif;
+}
+
+textarea,
+input[type="text"] {
+    font-family: inherit;
+}
+
+button,
+.button {
+    font-family: inherit;
+    background-color: white;
+    border: 1px solid hsl(0, 0%, 83%);
+    padding: 16px;
+    max-height: 64px;
+    font-size: 20px;
+    border-radius: 16px;
+}
+
+.back {
+    display: inline;
+}
+
+.hidden {
+    visibility:hidden;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+}
+.with-space-right {
+    margin-right: auto;
+}
+.with-space-left {
+    margin-left: auto;
+}
+
+.delete:hover {
+    background-color: hsl(0, 100%, 95%);
+}
+
+.submit:hover {
+    background-color: hsl(120, 73%, 95%);
+}
+
+button:hover,
+button:focus,
+a.button:hover,
+a.button:focus {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 99%);
+}
+
+.book-name {
+    text-align: center;
+    display: block;
+    font-size: 24px;
+    margin-right: auto;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.book-description {
+    display: inline;
+    margin-top: 8px;
+    display: block;
+    color: grey;
+    margin-right: auto;
+}
+
+.book-list {
+    max-width: 1200px;
+    display: grid;
+    gap: 16px;
+    margin-inline: auto;
+    /* border: 1px solid lightgray; */
+}
+
+.book-list a {
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.book-list a:hover,
+.book-list a:focus {
+    background-color: hsl(0, 0%, 99%)
+}
+
+.chapter-item {
+    padding: 8px;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    font-size: 24px;
+    margin-top: 16px;
+}
+
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.9px) {
+    .hitle { 
+        display: none;
+    }
+}
+@media (min-width: 576px) { 
+    .book-list {
+        justify-content: stretch;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .book-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* .text-field { 
+        display: inline-block;
+    } */
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .book-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    /* .text-field { 
+        display: inline-block;
+    } */
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .book-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    /* .text-field { 
+        display: inline-block;
+    } */
+}
