@@ -12,9 +12,9 @@ export class App {
   router: Router;
 
   configureRouter(config: RouterConfiguration, router: Router) {
-    config.title = "Set from App!"
+    config.title = "The App)"
     config.options.pushState = true
-    config.options.root = '/'
+    config.options.root = '/mini-books/'
     config.map([
       { 
         route: '', 

@@ -12,6 +12,7 @@
     "aurelia-bootstrapper": "^2.4.0",
     "aurelia-fetch-client": "^1.8.2"
   },
+  "private": "false",
   "devDependencies": {
     "@types/jest": "^29.2.4",
     "@types/node": "^18.11.18",
